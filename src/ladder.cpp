@@ -61,3 +61,38 @@ vector<string> generate_word_ladder(const string& begin_word, const string& end_
     
     return {};
 }
+
+
+void load_words(set<string>& word_list, const string& file_name) {
+    ifstream file(file_name);
+    if (!file) return;
+
+    string word;
+    while (file >> word) {
+        transform(word.begin(), word.end(), word.begin(), ::tolower);
+        word_list.insert(word);
+    }
+    file.close();
+}
+
+
+void print_word_ladder(const vector<string>& ladder) {
+    if (ladder.empty()) return;
+
+    for (size_t i = 0; i < ladder.size(); ++i) {
+        if (i > 0) cout << " -> ";
+        cout << ladder[i];
+    }
+}
+
+
+bool verify_word_ladder(const vector<string>& ladder, const set<string>& word_list) {
+    if (ladder.empty()) return false;
+
+    string curr;
+    for (size_t i = 1; i < ladder.size(); ++i) {
+        curr = ladder[i]
+        if (!is_adjacent(ladder[i - 1], curr) || word_list.find(curr) == word_list.end()) return false;
+    }
+    return true;
+}
