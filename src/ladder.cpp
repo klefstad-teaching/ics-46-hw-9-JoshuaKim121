@@ -16,7 +16,10 @@ bool edit_distance_within(const string& str1, const string& str2, int d) {
             
             if (len1 > len2) ++i;
             else if (len1 < len2) ++j;
-            else ++i; ++j;
+            else {
+                ++i;
+                ++j;
+            }
         } else {
             ++i;
             ++j;
@@ -91,7 +94,7 @@ bool verify_word_ladder(const vector<string>& ladder, const set<string>& word_li
 
     string curr;
     for (size_t i = 1; i < ladder.size(); ++i) {
-        curr = ladder[i]
+        curr = ladder[i];
         if (!is_adjacent(ladder[i - 1], curr) || word_list.find(curr) == word_list.end()) return false;
     }
     return true;
