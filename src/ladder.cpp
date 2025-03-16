@@ -27,7 +27,7 @@ bool edit_distance_within(const string& str1, const string& str2, int d) {
     }
     diff_count += (len1 - i) + (len2 - j);
     
-    return diff_count == d;
+    return diff_count <= d;
 }
 
 
