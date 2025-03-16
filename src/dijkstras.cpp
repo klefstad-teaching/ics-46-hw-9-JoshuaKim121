@@ -49,9 +49,8 @@ vector<int> extract_shortest_path(const vector<int>& distance, const vector<int>
 void print_path(const vector<int>& path, int total) {
     if (path.empty()) return;
 
-    cout << "Shortest path: ";
     for (int vertex : path) {
         cout << vertex << " ";
     }
-    cout << "\nTotal distance: " << total << endl;
+    cout << "\nTotal cost is " << total << endl;
 }
